@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel modelVersion="1.0" productVersion="7.8.4">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.TravelRequest">
+            <fields>
+                <field type="LONG" length="255" name="userId" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="departureDate" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="numberOfNights" nullable="false" collection="false"/>
+                <field type="BOOLEAN" length="255" name="hotelNeeded" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="destination" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="reason" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="refusalReason" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findByUserAndStatus" content="SELECT t &#xA;FROM TravelRequest t &#xA;WHERE t.userId = :userId&#xA;AND t.status = :status&#xA;ORDER BY t.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="userId" className="java.lang.Long"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
